@@ -20,7 +20,6 @@ void UARTSendArray(unsigned char *TxArray, unsigned char ArrayLength){
 
     while(ArrayLength--){ // Loop until StringLength == 0 and post decrement
     while(!(IFG2 & UCA0TXIFG)); // Wait for TX buffer to be ready for new data
-    UCA0TXBUF = *TxArray; //Write the character at the location specified by the pointer
-    TxArray++; //Increment the TxString pointer to point to the next character
+    UCA0TXBUF = *TxArray++; //Write the character at the location specified by the pointer and increment pointer
   }
 }
