@@ -1,3 +1,4 @@
+#include "i2c.h"
 
 unsigned char tx_dataptr;
 unsigned char rxdata[12];
@@ -10,21 +11,23 @@ unsigned char tx_rx;
 
 void i2cConfigure(void)
 {
-P1SEL |= BIT6 + BIT7;							//Set I2C pins
-P1SEL2|= BIT6 + BIT7;
+
 UCB0CTL1 |= UCSWRST;							//Enable SW reset
 UCB0CTL0 = UCMST + UCMODE_3 + UCSYNC;			//I2C Master, synchronous mode
 UCB0CTL1 = UCSSEL_2 + UCSWRST;					//Use SMCLK, keep SW reset
+P1SEL |= BIT6 + BIT7;							//Set I2C pins
+P1SEL2|= BIT6 + BIT7;
 UCB0BR0 = 12;									//fSCL = SMCLK/12 = ~100kHz
 UCB0BR1 = 0;
-UCB0I2CSA = 0b1010000;							//Slave Address
 UCB0CTL1 &= ~UCSWRST;							//Clear SW reset, resume operation
 IE2 |= UCB0TXIE;								//Enable TX interrupt
 IE2 |= UCB0RXIE;								//Enable RX interrupt
 }
 
-void i2c_tx(unsigned char *tx_data, unsigned char tx_count)
+
+void i2cTx(unsigned char address, unsigned char *tx_data, unsigned char tx_count)
 {
+    UCB0I2CSA = address;							//Slave Address
     tx_rx = 0;
     tx_dataptr = tx_data;
     tx_byte_count = tx_count + 1;
@@ -34,8 +37,9 @@ void i2c_tx(unsigned char *tx_data, unsigned char tx_count)
     // Remain in LPM0 until all data is TX'd
 }
 
-void i2c_rx(unsigned char rx_count)
+void i2cRx(unsigned char address, unsigned char rx_count)
 {
+    UCB0I2CSA = address;							//Slave Address
     tx_rx = 1;
     rx_byte_count = rx_count + 1;
     rx_byte_counter = rx_count;						// Load RX byte counter

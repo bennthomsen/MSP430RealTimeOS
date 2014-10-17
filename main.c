@@ -2,6 +2,7 @@
 #include "UART.h"
 #include "ADC.h"
 #include "print.h"
+#include "LCDShield.h"
 
 /* Main function */
 
@@ -26,9 +27,10 @@ int main(void)
     WDTConfigure();
     UARTConfigure();
     ADCConfigure();
+    LCDShieldConfigure(0x3E);
     
-    P1DIR |= (BIT0+BIT6);              // P1.2 to output
-    P1OUT |= (BIT0+BIT6);              // Set the LEDs P1.0 and P1.6 to on
+    P1DIR |= (BIT0);              // P1.2 to output
+    P1OUT |= (BIT0);              // Set the LEDs P1.0 and P1.6 to on
     
     while(1)
     {

@@ -23,7 +23,6 @@ __interrupt void ADC10_ISR (void)
   ADCvalue = ADC10MEM; // read ADC value (note this is a 10bit value stored in a 16 bit register)
   ADC10CTL0 &= ~ENC;
   ADCflag = 1;
-  P1OUT ^= BIT6;
  __bic_SR_register_on_exit(CPUOFF); // Return to active mode
 }
 
