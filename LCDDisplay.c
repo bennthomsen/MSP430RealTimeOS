@@ -45,6 +45,10 @@ Released into the public domain.
 #define SWITCHPORT1 0b00011000      //Bit locations for switches on port 1
 #define SWITCHPORT2 0b00001111      //Bit locations for switches on port 2
 
+#define BLINK 0x01
+#define CURSOR 0x02
+#define DISPLAYMEM 0x80
+
 volatile char button1;
 volatile char button2;
 
@@ -63,12 +67,15 @@ char TxData[] =     // Table of LCD display initialisation commands
 
 char home[] = {0x80,0x02};
 char clear[] = {0x80,0x01};
+char display[] = {0x80,0x0F};
+char column = 0x00;
+char col[] = {0x80,0x00};
 
-void LCDConfigure(unsigned char address)
+void LCDConfigure(void)
 {
     i2cConfigure();
     
-    i2cTx(address,TxData,10);
+    i2cTx(ADDRESS,TxData,10);
     
     /* Configure timer A as a pulse width modulator */
     TA1CCR0 = 1000-1;             // Set maximum count value to determine PWM Frequency = SMCLK/TACCR0 (1MHz/1000 = 1kHz)
@@ -116,6 +123,7 @@ void LCDWriteString(char *string, unsigned char strLength)
         dataArray[++i] = *string++;
     }
     i2cTx(ADDRESS,dataArray,strLength+1);
+    column = column + strLength;
 }
 
 void LCDHome(void)
@@ -126,6 +134,73 @@ void LCDHome(void)
 void LCDClear(void)
 {
     i2cTx(ADDRESS,clear,2);
+}
+
+void LCDBlinkOn(void)
+{
+    display[1] |= BLINK;
+    i2cTx(ADDRESS,display,2);
+}
+
+void LCDBlinkOff(void)
+{
+    display[1] &= ~BLINK;
+    i2cTx(ADDRESS,display,2);
+}
+
+void LCDCursorOn(void)
+{
+    display[1] |= CURSOR;
+    i2cTx(ADDRESS,display,2);
+}
+
+void LCDCursorOff(void)
+{
+    display[1] &= ~CURSOR;
+    i2cTx(ADDRESS,display,2);
+}
+
+void LCDForward(void)
+{
+    if (column == 0x0F) column = 0x40;        // Check if at end of top row and if so go to start of bottom row
+    else if (column == 0x4F) column = 0x00;   // Check if at end of bottom row and if so go to start of top row
+    else column++;                            // Increment column
+    col[1] = column | DISPLAYMEM;             // Append to command string and display memory address
+    i2cTx(ADDRESS,col,2);
+}
+
+void LCDBack(void)
+{
+    if (column == 0x00) column = 0x4F;
+    else if (column == 0x40) column = 0x0F;
+    else column--;
+    col[1] = column | DISPLAYMEM;
+    i2cTx(ADDRESS,col,2);
+}
+
+void LCDUp(void)
+{
+    if (column & 0x40)
+    {
+        column &= 0x0F;
+        col[1] = column | DISPLAYMEM;
+        i2cTx(ADDRESS,col,2);
+    }
+}
+
+void LCDDown(void)
+{
+    if (!(column & 0x40))
+    {
+        column |= 0x40;
+        col[1] = column | DISPLAYMEM;
+        i2cTx(ADDRESS,col,2);
+    }
+}
+
+void LCDBackLight(char level)
+{
+    TA1CCR2 = level;                // Initialise counter compare value 1 to control Duty Cycle = TACCR1/TACCR0 (500/1000 = 50%)
 }
 
 /* Port 1 interrupt to service the button press */

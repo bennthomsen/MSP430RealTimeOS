@@ -19,6 +19,7 @@
 static unsigned long event0 = EVENTSTART0;
 static unsigned long event1 = EVENTSTART1;
 static unsigned long event2 = EVENTSTART2;
+char cursorState = 0;
 
 int main(void)
 {
@@ -32,11 +33,8 @@ int main(void)
     RTCConfigure();
     UARTConfigure();
     ADCConfigure();
-    LCDConfigure(0x3E);
-    
-
-    
-    
+    LCDConfigure();
+    LCDBackLight(50);
     
     while(1)
     {
@@ -45,8 +43,7 @@ int main(void)
         {
             switch (pressRelease1) {
                 case S1:
-                    LCDHome();
-                    LCDWriteString("S1", 2);
+                    LCDBack();
                     break;
                 case SW2:
                     LCDHome();
@@ -60,20 +57,31 @@ int main(void)
         {
             switch (pressRelease2) {
                 case S2:
-                    LCDHome();
-                    LCDWriteString("S2", 2);
+                    LCDDown();
                     break;
                 case S3:
-                    LCDHome();
-                    LCDWriteString("S3", 2);
+                    LCDForward();
                     break;
                 case S4:
-                    LCDHome();
-                    LCDWriteString("S4", 2);
+                    LCDUp();
                     break;
                 case S5:
-                    LCDHome();
-                    LCDWriteString("S5", 2);
+                    if (++cursorState == 4) cursorState = 0;   // Increment state and wrap if exceeds laat state
+                    switch (cursorState)
+                {
+                    case 0:
+                        LCDCursorOn();
+                        break;
+                    case 1:
+                        LCDBlinkOff();
+                        break;
+                    case 2:
+                        LCDCursorOff();
+                        break;
+                    case 3:
+                        LCDBlinkOn();
+                        break;
+                }
                     break;
             }
             pressRelease2 = 0;
@@ -84,20 +92,20 @@ int main(void)
         {
             LCDHome();
             LCDWriteString("Hello", 5);
+//            LCDBlinkOff();
         }
         
         if (time_ms == event1)
         {
             event1=time_ms+EVENTDELAY1;      // Schedule repeat event
-            LCDHome();
-            LCDWriteString("Update", 6);
+            //LCDHome();
+            //LCDWriteString("Update", 6);
         }
         
         if (time_ms == event2)
         {
             event2=time_ms+EVENTDELAY2;      // Schedule repeat event
-            UARTPrintln("test");
-            printline("Reading ADC");
+            UARTPrintln("Reading ADC");
             ADCAcquireTemp();
         }
         
