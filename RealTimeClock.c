@@ -11,6 +11,8 @@
 
 #include "RealTimeClock.h"
 
+#define INCR 1UL
+
 void RTCConfigure(void)
 {
     time_ms = 0;
@@ -27,7 +29,7 @@ void RTCConfigure(void)
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void Timer_A0_ISR (void)
 {
-    time_ms++;
+    time_ms = time_ms + INCR;
     if (++ms == 1000)
     {
         ms = 0;

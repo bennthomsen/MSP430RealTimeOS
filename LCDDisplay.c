@@ -1,5 +1,5 @@
 /*
-//  LCDDisplay.c
+LCDDisplay.c
 
 
 LCDDriver.cpp - Library for using the MIDAS MCCOG21605B6W-FPTLWI 16x2 Black on white
@@ -25,6 +25,8 @@ P2.3|---------| Switch 4
 
 4.7kohm pullups are used on pins 6, 7, 8. Two 1uF capacitors are required
 between pins 1 and 4 and between 2 and 3 when using a 3V supply.
+The switches are connected from the microcontroller pins to ground and require the internal
+pullups to be configured.
 
 Note as P1.6 is used for SCL you must remove the LED2 jumper on the MSP430 Launchpad board.
 
@@ -104,11 +106,14 @@ void LCDConfigure(unsigned char address)
 void LCDWriteString(char *string, unsigned char strLength)
 {
     char dataArray[16];
-    dataArray[0]= 0x40;               // Append the character control character to the start of the string
-    int i;
-    for (i = 0; i < strLength; ++i)
-    {
-        dataArray[i+1] = *string++;
+    dataArray[0] = 0x40;               // Append the character control character to the start of the string
+    int i = 0;
+//    for (i = 0; i < strLength; ++i)
+//    {
+//        dataArray[i+1] = *string++;
+//    }
+    while (*string) {
+        dataArray[++i] = *string++;
     }
     i2cTx(ADDRESS,dataArray,strLength+1);
 }

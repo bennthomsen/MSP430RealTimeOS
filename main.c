@@ -8,17 +8,17 @@
 
 /* Main function */
 
-#define EVENTSTART0 40
-#define EVENTDELAY0 40
-#define EVENTSTART1 2000
-#define EVENTDELAY1 1000
+#define EVENTSTART0 1000UL
+#define EVENTDELAY0 1000UL
+#define EVENTSTART1 2000UL
+#define EVENTDELAY1 1000UL
 
-#define EVENTSTART2 2000
-#define EVENTDELAY2 1000
+#define EVENTSTART2 2000UL
+#define EVENTDELAY2 1000UL
 
-static unsigned int event0 = EVENTSTART0;
-static unsigned int event1 = EVENTSTART1;
-static unsigned int event2 = EVENTSTART2;
+static unsigned long event0 = EVENTSTART0;
+static unsigned long event1 = EVENTSTART1;
+static unsigned long event2 = EVENTSTART2;
 
 int main(void)
 {
@@ -40,6 +40,7 @@ int main(void)
     
     while(1)
     {
+        // Service Switch Presses
         if (pressRelease1)
         {
             switch (pressRelease1) {
@@ -78,25 +79,29 @@ int main(void)
             pressRelease2 = 0;
         }
         
-        
+        //Service timed events
         if (time_ms == event0)
         {
-            event0=time_ms+EVENTDELAY0;
-            
+            LCDHome();
+            LCDWriteString("Hello", 5);
         }
         
         if (time_ms == event1)
         {
+            event1=time_ms+EVENTDELAY1;      // Schedule repeat event
             LCDHome();
-            LCDWriteString("Hello", 5);
-            
+            LCDWriteString("Update", 6);
         }
         
         if (time_ms == event2)
         {
-            event2=time_ms+EVENTDELAY2;
+            event2=time_ms+EVENTDELAY2;      // Schedule repeat event
+            UARTPrintln("test");
+            printline("Reading ADC");
             ADCAcquireTemp();
         }
+        
+        // Service ADC flag
         if (ADCflag == 1)
         {
             ADCflag = 0;

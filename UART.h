@@ -5,3 +5,5 @@
 
 void UARTConfigure(void);
 void UARTSendArray(unsigned char *TxArray, unsigned char ArrayLength);
+void UARTSendString(char *TxArray);
+void UARTPrintln(char *TxArray);
