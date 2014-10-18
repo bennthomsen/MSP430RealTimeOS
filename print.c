@@ -1,5 +1,6 @@
 #include "print.h"
 
+
 void putcharacter(unsigned character);
 void putstring(char *s);
 
@@ -64,12 +65,12 @@ void printformat(char *format, ...)
                     xtoa((unsigned)i, dv + 5);
                     break;
                 case 'l':                       // 32 bit Long
-                case 'n':                       // 32 bit uNsigned loNg
+                case 'n':                       // 32 bit unsigned long
                     n = va_arg(a, long);
                     if(formatChar == 'l' &&  n < 0) n = -n, putcharacter('-');
                     xtoa((unsigned long)n, dv);
                     break;
-                case 'x':                       // 16 bit heXadecimal
+                case 'x':                       // 16 bit hexadecimal
                     i = va_arg(a, int);
                     puth(i >> 12);
                     puth(i >> 8);
@@ -85,22 +86,23 @@ bad_fmt:    putcharacter(formatChar);
     va_end(a);
 }
 
-void printline(char* string)
-{
-  putstring(string);
-  putstring("\r\n");
-}
-
 void putstring(char *s)
 {
   while(*s) putcharacter(*s++);
 }
 
 /**
- * Sends a single byte out through UART
+ * Sends a single byte out through UART or to LCD
  **/
 void putcharacter(unsigned character)
 {
-  while (!(IFG2&UCA0TXIFG));		// USCI_A0 TX buffer ready?
-  UCA0TXBUF = character;			// TX -> RXed character
+    if (printDestination)
+    {
+        LCDWriteChar(character);
+    }
+    else
+    {
+        while (!(IFG2 & UCA0TXIFG));		// USCI_A0 TX buffer ready?
+        UCA0TXBUF = character;			// TX -> RXed character
+    }
 }

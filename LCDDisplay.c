@@ -70,6 +70,7 @@ char clear[] = {0x80,0x01};
 char display[] = {0x80,0x0F};
 char column = 0x00;
 char col[] = {0x80,0x00};
+char writeChar[] = {0x40,0x00};
 
 void LCDConfigure(void)
 {
@@ -125,6 +126,14 @@ void LCDWriteString(char *string, unsigned char strLength)
     i2cTx(ADDRESS,dataArray,strLength+1);
     column = column + strLength;
 }
+
+void LCDWriteChar(char character)
+{
+    writeChar[1] = character;               // Append the character control character to the start of the string
+    i2cTx(ADDRESS,writeChar,2);
+    column = column + 1;
+}
+
 
 void LCDHome(void)
 {
@@ -197,6 +206,17 @@ void LCDDown(void)
         i2cTx(ADDRESS,col,2);
     }
 }
+
+void LCDSetLocation(char rowindex, char colindex)
+{
+    if (rowindex) column = 0x40;
+    else column = 0x00;
+    column = column + colindex;
+    col[1] = column | DISPLAYMEM;
+    i2cTx(ADDRESS,col,2);
+}
+
+
 
 void LCDBackLight(char level)
 {

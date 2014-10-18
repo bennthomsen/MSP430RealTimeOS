@@ -32,7 +32,8 @@ void UARTSendString(char *TxArray){
     // int data[2]={1023, 235};
     // UARTSendArray(data, 4); // Note because the UART transmits bytes it is necessary to send two bytes for each integer hence the data length is twice the array length
     
-    while(*TxArray){ // Loop until StringLength == 0 and post decrement
+    while(*TxArray)
+    {
         while(!(IFG2 & UCA0TXIFG)); // Wait for TX buffer to be ready for new data
         UCA0TXBUF = *TxArray++; //Write the character at the location specified by the pointer and increment pointer
     }
@@ -45,7 +46,8 @@ void UARTPrintln(char *TxArray){
     // UARTSendArray(data, 4); // Note because the UART transmits bytes it is necessary to send two bytes for each integer hence the data length is twice the array length
     
     
-    while(*TxArray){ // Loop until StringLength == 0 and post decrement
+    while(*TxArray)
+    {
         while(!(IFG2 & UCA0TXIFG)); // Wait for TX buffer to be ready for new data
         UCA0TXBUF = *TxArray++; //Write the character at the location specified by the pointer and increment pointer
     }

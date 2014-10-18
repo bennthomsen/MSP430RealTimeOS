@@ -4,5 +4,9 @@
 #endif
 #include "stdarg.h"
 
+#define UART 0
+#define LCD 1
+
+volatile char printDestination;
+
 void printformat(char *format, ...);
-void printline(char* string);

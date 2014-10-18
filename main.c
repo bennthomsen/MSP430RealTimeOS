@@ -1,8 +1,8 @@
 #include "RealTimeClock.h"
 #include "UART.h"
 #include "ADC.h"
-#include "print.h"
 #include "LCDDisplay.h"
+#include "print.h"
 #include "i2c.h"
 
 
@@ -14,7 +14,7 @@
 #define EVENTDELAY1 1000UL
 
 #define EVENTSTART2 2000UL
-#define EVENTDELAY2 1000UL
+#define EVENTDELAY2 2000UL
 
 static unsigned long event0 = EVENTSTART0;
 static unsigned long event1 = EVENTSTART1;
@@ -113,7 +113,12 @@ int main(void)
         if (ADCflag == 1)
         {
             ADCflag = 0;
+            printDestination = UART;
             printformat("Temp: %i C\r\n",((ADCvalue * 27069L - 18169625L) >> 16));
+            printDestination = LCD;
+            LCDSetLocation(1,0);
+            printformat("Temp: %i C",((ADCvalue * 27069L - 18169625L) >> 16));
+            
         }
         
         __bis_SR_register(CPUOFF + GIE); // LPM0 with interrupts enabled
