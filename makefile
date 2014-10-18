@@ -33,7 +33,7 @@ TARGET	:= $(basename $(INOFILE))
 
 # List all the source files here
 # eg if you have a source file foo.c then list it here
-SOURCES = $(INOFILE) WDT.c UART.c ADC.c print.c
+SOURCES = $(INOFILE) RealTimeClock.c UART.c ADC.c print.c LCDDisplay.c i2c.c
 # Include are located in the Include directory
 #INCLUDES = -IInclude
 # Add or subtract whatever MSPGCC flags you want. There are plenty more

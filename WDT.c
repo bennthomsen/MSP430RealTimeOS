@@ -14,5 +14,6 @@ __interrupt void WDT_ISR(void)
 {
    IFG1 &= ~WDTIFG;                 // clear WDT interrupt flag
    time++;
+   P1IE |= button;                 // Enable Button interrupt
    __bic_SR_register_on_exit(CPUOFF); /* Exit Low Power Mode 0 */
 }
