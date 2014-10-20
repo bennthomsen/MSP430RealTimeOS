@@ -24,7 +24,7 @@ char pressRelease1;	   // Flag set to switch number when a switch on port1 is cl
 char pressRelease2;    // Flag set to switch number when a switch on port2 is clicked
 
 void LCDConfigure(void);
-void LCDWriteString(char *string, unsigned char strLength);
+void LCDWriteString(char *string);
 void LCDWriteChar(char character);
 void LCDHome(void);
 void LCDClear(void);

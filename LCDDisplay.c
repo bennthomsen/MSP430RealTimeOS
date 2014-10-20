@@ -111,20 +111,9 @@ void LCDConfigure(void)
     P2IE |= SWITCHPORT2;     // Enable interrupts on port 1 for the button
 }
 
-void LCDWriteString(char *string, unsigned char strLength)
+void LCDWriteString(char *string)
 {
-    char dataArray[16];
-    dataArray[0] = 0x40;               // Append the character control character to the start of the string
-    int i = 0;
-//    for (i = 0; i < strLength; ++i)
-//    {
-//        dataArray[i+1] = *string++;
-//    }
-    while (*string) {
-        dataArray[++i] = *string++;
-    }
-    i2cTx(ADDRESS,dataArray,strLength+1);
-    column = column + strLength;
+    while (*string) LCDWriteChar(*string++);
 }
 
 void LCDWriteChar(char character)

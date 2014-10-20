@@ -20,4 +20,6 @@ volatile unsigned int seconds;
 volatile unsigned int minutes;
 volatile unsigned int hours;
 
+#define MAXTIME_MS 0xFFFFFFFF
+
 void RTCConfigure(void);

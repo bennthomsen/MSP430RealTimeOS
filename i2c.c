@@ -8,8 +8,9 @@
 
 #include "i2c.h"
 
-#define TRANSMIT 0
-#define RECEIVE 1
+#define IDLE 0
+#define TRANSMIT 1
+#define RECEIVE 2
 
 
 
@@ -20,7 +21,7 @@ unsigned char rx_byte_count;
 unsigned char tx_byte_counter;
 unsigned char rx_byte_counter;
 unsigned char i;
-unsigned char tx_rx;
+unsigned char tx_rx = IDLE;
 
 void i2cConfigure(void)
 {
@@ -40,6 +41,7 @@ void i2cConfigure(void)
 
 void i2cTx(unsigned char address, char *tx_data, unsigned char tx_count)
 {
+    //while (!(tx_rx == 0));                              // Wait until I2C Tx is not busy
     UCB0I2CSA = address;							//Slave Address
     tx_rx = TRANSMIT;
     tx_dataptr = tx_data;
@@ -77,6 +79,7 @@ __interrupt void USCIAB0TX_ISR(void)				//For mspgcc
                 UCB0CTL1 |= UCTXSTP;					//I2C stop condition
                 while (UCB0CTL1 & UCTXSTP);				//Ensure stop condition got sent
                 IFG2 &= ~UCB0TXIFG;						//Clear USCI_B0 TX int flag
+                tx_rx = IDLE;
                 __bic_SR_register_on_exit(CPUOFF);		//Exit LPM0
             }
             break;
@@ -93,6 +96,7 @@ __interrupt void USCIAB0TX_ISR(void)				//For mspgcc
                 rxdata[rx_byte_count - (rx_byte_counter + 1)] = UCB0RXBUF;
                 rxdata[rx_byte_count - (rx_byte_counter + 1)] = UCB0RXBUF;
                 IFG2 &= ~UCB0RXIFG;						// Clear USCI_B0 RX int flag
+                tx_rx = IDLE;
                 __bic_SR_register_on_exit(CPUOFF);		// Exit LPM0
             }
             break;
