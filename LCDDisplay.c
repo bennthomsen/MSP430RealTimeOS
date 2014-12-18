@@ -41,10 +41,11 @@ Released into the public domain.
 #include "LCDDisplay.h"
 #include "i2c.h"
 
-#define CHARCONTROL 0x40
-#define SWITCHPORT1 0b00011000      //Bit locations for switches on port 1
-#define SWITCHPORT2 0b00001111      //Bit locations for switches on port 2
 
+#define SWITCHPORT1 SW2
+#define SWITCHPORT2 (SELECT + UP + DOWN + LEFT +RIGHT)   //Bit locations for switches on port 2
+
+#define CHARCONTROL 0x40
 #define BLINK 0x01
 #define CURSOR 0x02
 #define DISPLAYMEM 0x80
@@ -84,9 +85,9 @@ void LCDConfigure(void)
     TA1CCTL2 = OUTMOD_7;          // Set output to on when counter resets and off when counter equals TACCR1. Normal PWM.
     TA1CTL = TASSEL_2 + MC_1;     // Use the SMCLK to clock the counter and set to count up mode
     
-    P2DIR |= BIT4;               // Set P2.4 as output
-    P2SEL |= BIT4;               // Select output P2.4 to be TA1.2
-    P2SEL2 &= ~BIT4;             // Select output P2.4 to be TA1.2
+    P2DIR |= BACKLIGHT;               // Set P2.4 as output
+    P2SEL |= BACKLIGHT;               // Select output P2.4 to be TA1.2
+    P2SEL2 &= ~BACKLIGHT;             // Select output P2.4 to be TA1.2
     
     /* Define input pin functionality for switches */
     P1SEL &= ~ SWITCHPORT1;
@@ -207,7 +208,7 @@ void LCDSetLocation(char rowindex, char colindex)
 
 
 
-void LCDBackLight(char level)
+void LCDBackLight(int level)
 {
     TA1CCR2 = level;                // Initialise counter compare value 1 to control Duty Cycle = TACCR1/TACCR0 (500/1000 = 50%)
 }

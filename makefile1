@@ -1,0 +1,65 @@
+# Makefile
+#
+# This make file allows you to use the MSP-gcc toolchain that comes with Energia to assemble
+# Assembly code files with a .S extension from the command line
+#
+# First cd to the directory that contains this makefile and the assembly code (.S)
+# make         % assembles the code
+# make upload  % assembles, if not already assembled, and uploads the code to the lauchpad
+# make debug   % assembles, and readies the debugger
+# make clean   % removes the assembled files leaving only your original source code
+#
+# Author: Benn Thomsen
+# 
+# Modified from Source by: Rick Kimball
+# email: rick@kimballsoftware.com
+#
+# Version: 1.1 Initial version 28/1/2014
+
+# PATHS UPDATE these to reflect your own installation
+
+COMPILER_PATH=//Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/
+UPLOADER_PATH=//Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/mspdebug/
+INCLUDES :=-I //Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/msp430/include/
+
+# Target MCU
+MCU = msp430g2553
+
+# USB port for upload
+PORT = /dev/tty.uart*
+
+CFILE := main.c
+
+APP := $(basename $(CFILE))
+ 
+CC=$(COMPILER_PATH)msp430-gcc
+CXX=$(COMPILER_PATH)msp430-g++
+COMMON=-c -Wall -Os -g $(INCLUDES)
+CFLAGS   += -mmcu=$(MCU) $(COMMON)
+CXXFLAGS += -mmcu=$(MCU) $(COMMON)
+ASFLAGS  += -mmcu=$(MCU) $(COMMON)
+LDFLAGS   = -Wl,-Map,$(APP).map -nostdlib -nostartfiles
+ 
+all: $(APP).elf
+ 
+$(APP).elf: $(APP).o
+	@echo "Compiling $@"
+	$(CC) $(CFLAGS) $(APP).o $(LDFLAGS) -o $(APP).elf
+	$(COMPILER_PATH)msp430-objdump -z -EL -D -W $(APP).elf >$(APP).lss
+	$(COMPILER_PATH)msp430-size $(APP).elf
+	$(COMPILER_PATH)msp430-objcopy -O ihex $(APP).elf $(APP).hex
+ 
+upload: all
+	$(UPLOADER_PATH)mspdebug --force-reset rf2500 "prog $(APP).elf"
+ 
+debug: all
+	clear
+	@echo -e "--------------------------------------------------------------------------------"
+	@echo -e "-- Make sure you are running mspdebug in another window                       --"
+	@echo -e "--------------------------------------------------------------------------------"
+	@echo -e "$$ # you can start it like this:"
+	@echo -e "$$ mspdebug rf2500 gdb\n"
+	$(COMPILER_PATH)msp430-gdb --command=$(APP).gdb $(APP).elf
+ 
+clean:
+	rm -f $(APP).o $(APP).elf $(APP).lss $(APP).map $(APP).hex $(APP)_cc.txt

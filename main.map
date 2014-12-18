@@ -1,0 +1,702 @@
+Archive member included because of file (symbol)
+
+/Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a(_mulhi3.o)
+                              main.o (__mulhi3)
+/Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o)
+                              /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/crt0ivtbl16.o (_reset_vector__)
+/Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__watchdog_support.o)
+                              /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o) (__watchdog_support)
+/Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__init_stack.o)
+                              /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o) (__init_stack)
+/Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__low_level_init.o)
+                              /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o) (__low_level_init)
+/Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_copy_data.o)
+                              /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o) (__do_copy_data)
+/Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_clear_bss.o)
+                              /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o) (__do_clear_bss)
+/Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__stop_progExec__.o)
+                              /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o) (__stop_progExec__)
+/Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_endless_loop__.o)
+                              /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o) (_endless_loop__)
+/Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_unexpected_.o)
+                              /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/crt0ivtbl16.o (_unexpected_)
+
+Allocating common symbols
+Common symbol       size              file
+
+printDestination    0x1               main.o
+rx_byte_count       0x1               i2c.o
+UARTRxData          0x14              main.o
+tx_byte_count       0x1               i2c.o
+ms                  0x2               main.o
+ADCTemp             0x2               main.o
+pressRelease2       0x1               main.o
+UARTRxFlag          0x1               main.o
+rxdata              0xc               i2c.o
+pressRelease1       0x1               main.o
+button2             0x1               LCDDisplay.o
+tx_byte_counter     0x1               i2c.o
+ADCflag             0x1               main.o
+seconds             0x2               main.o
+button1             0x1               LCDDisplay.o
+rx_byte_counter     0x1               i2c.o
+tx_dataptr          0x2               i2c.o
+ADCvalue            0x2               main.o
+minutes             0x2               main.o
+hours               0x2               main.o
+time_ms             0x4               main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+sfr              0x0000000000000000 0x0000000000000010
+peripheral_8bit  0x0000000000000010 0x00000000000000f0
+peripheral_16bit 0x0000000000000100 0x0000000000000100
+ram              0x0000000000000200 0x0000000000000200 xw
+infomem          0x0000000000001000 0x0000000000000100
+infod            0x0000000000001000 0x0000000000000040
+infoc            0x0000000000001040 0x0000000000000040
+infob            0x0000000000001080 0x0000000000000040
+infoa            0x00000000000010c0 0x0000000000000040
+rom              0x000000000000c000 0x0000000000003fe0 xr
+vectors          0x000000000000ffe0 0x0000000000000020
+bsl              0x0000000000000000 0x0000000000000000
+ram2             0x0000000000000000 0x0000000000000000 xw
+ram_mirror       0x0000000000000000 0x0000000000000000 xw
+usbram           0x0000000000000000 0x0000000000000000 xw
+far_rom          0x0000000000000000 0x0000000000000000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/crt0ivtbl16.o
+LOAD main.o
+LOAD RealTimeClock.o
+LOAD UART.o
+LOAD ADC.o
+LOAD print.o
+LOAD LCDDisplay.o
+LOAD i2c.o
+LOAD /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a
+LOAD /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/../../../../msp430/lib/libc.a
+LOAD /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a
+LOAD /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a
+                0x0000000000000040                PROVIDE (__info_segment_size, 0x40)
+                0x0000000000001000                PROVIDE (__infod, 0x1000)
+                0x0000000000001040                PROVIDE (__infoc, 0x1040)
+                0x0000000000001080                PROVIDE (__infob, 0x1080)
+                0x00000000000010c0                PROVIDE (__infoa, 0x10c0)
+                0x0000000000000000                __IE1 = 0x0
+                0x0000000000000002                __IFG1 = 0x2
+                0x0000000000000001                __IE2 = 0x1
+                0x0000000000000003                __IFG2 = 0x3
+                0x0000000000000048                __ADC10DTC0 = 0x48
+                0x0000000000000049                __ADC10DTC1 = 0x49
+                0x000000000000004a                __ADC10AE0 = 0x4a
+                0x00000000000001b0                __ADC10CTL0 = 0x1b0
+                0x00000000000001b2                __ADC10CTL1 = 0x1b2
+                0x00000000000001b4                __ADC10MEM = 0x1b4
+                0x00000000000001bc                __ADC10SA = 0x1bc
+                0x0000000000000056                __DCOCTL = 0x56
+                0x0000000000000057                __BCSCTL1 = 0x57
+                0x0000000000000058                __BCSCTL2 = 0x58
+                0x0000000000000053                __BCSCTL3 = 0x53
+                0x0000000000000059                __CACTL1 = 0x59
+                0x000000000000005a                __CACTL2 = 0x5a
+                0x000000000000005b                __CAPD = 0x5b
+                0x0000000000000128                __FCTL1 = 0x128
+                0x000000000000012a                __FCTL2 = 0x12a
+                0x000000000000012c                __FCTL3 = 0x12c
+                0x0000000000000020                __P1IN = 0x20
+                0x0000000000000021                __P1OUT = 0x21
+                0x0000000000000022                __P1DIR = 0x22
+                0x0000000000000023                __P1IFG = 0x23
+                0x0000000000000024                __P1IES = 0x24
+                0x0000000000000025                __P1IE = 0x25
+                0x0000000000000026                __P1SEL = 0x26
+                0x0000000000000041                __P1SEL2 = 0x41
+                0x0000000000000027                __P1REN = 0x27
+                0x0000000000000028                __P2IN = 0x28
+                0x0000000000000029                __P2OUT = 0x29
+                0x000000000000002a                __P2DIR = 0x2a
+                0x000000000000002b                __P2IFG = 0x2b
+                0x000000000000002c                __P2IES = 0x2c
+                0x000000000000002d                __P2IE = 0x2d
+                0x000000000000002e                __P2SEL = 0x2e
+                0x0000000000000042                __P2SEL2 = 0x42
+                0x000000000000002f                __P2REN = 0x2f
+                0x0000000000000018                __P3IN = 0x18
+                0x0000000000000019                __P3OUT = 0x19
+                0x000000000000001a                __P3DIR = 0x1a
+                0x000000000000001b                __P3SEL = 0x1b
+                0x0000000000000043                __P3SEL2 = 0x43
+                0x0000000000000010                __P3REN = 0x10
+                0x000000000000012e                __TA0IV = 0x12e
+                0x0000000000000160                __TA0CTL = 0x160
+                0x0000000000000162                __TA0CCTL0 = 0x162
+                0x0000000000000164                __TA0CCTL1 = 0x164
+                0x0000000000000166                __TA0CCTL2 = 0x166
+                0x0000000000000170                __TA0R = 0x170
+                0x0000000000000172                __TA0CCR0 = 0x172
+                0x0000000000000174                __TA0CCR1 = 0x174
+                0x0000000000000176                __TA0CCR2 = 0x176
+                0x000000000000011e                __TA1IV = 0x11e
+                0x0000000000000180                __TA1CTL = 0x180
+                0x0000000000000182                __TA1CCTL0 = 0x182
+                0x0000000000000184                __TA1CCTL1 = 0x184
+                0x0000000000000186                __TA1CCTL2 = 0x186
+                0x0000000000000190                __TA1R = 0x190
+                0x0000000000000192                __TA1CCR0 = 0x192
+                0x0000000000000194                __TA1CCR1 = 0x194
+                0x0000000000000196                __TA1CCR2 = 0x196
+                0x0000000000000060                __UCA0CTL0 = 0x60
+                0x0000000000000061                __UCA0CTL1 = 0x61
+                0x0000000000000062                __UCA0BR0 = 0x62
+                0x0000000000000063                __UCA0BR1 = 0x63
+                0x0000000000000064                __UCA0MCTL = 0x64
+                0x0000000000000065                __UCA0STAT = 0x65
+                0x0000000000000066                __UCA0RXBUF = 0x66
+                0x0000000000000067                __UCA0TXBUF = 0x67
+                0x000000000000005d                __UCA0ABCTL = 0x5d
+                0x000000000000005e                __UCA0IRTCTL = 0x5e
+                0x000000000000005f                __UCA0IRRCTL = 0x5f
+                0x0000000000000068                __UCB0CTL0 = 0x68
+                0x0000000000000069                __UCB0CTL1 = 0x69
+                0x000000000000006a                __UCB0BR0 = 0x6a
+                0x000000000000006b                __UCB0BR1 = 0x6b
+                0x000000000000006c                __UCB0I2CIE = 0x6c
+                0x000000000000006d                __UCB0STAT = 0x6d
+                0x000000000000006e                __UCB0RXBUF = 0x6e
+                0x000000000000006f                __UCB0TXBUF = 0x6f
+                0x0000000000000118                __UCB0I2COA = 0x118
+                0x000000000000011a                __UCB0I2CSA = 0x11a
+                0x0000000000000120                __WDTCTL = 0x120
+                0x00000000000010f8                __CALDCO_16MHZ = 0x10f8
+                0x00000000000010f9                __CALBC1_16MHZ = 0x10f9
+                0x00000000000010fa                __CALDCO_12MHZ = 0x10fa
+                0x00000000000010fb                __CALBC1_12MHZ = 0x10fb
+                0x00000000000010fc                __CALDCO_8MHZ = 0x10fc
+                0x00000000000010fd                __CALBC1_8MHZ = 0x10fd
+                0x00000000000010fe                __CALDCO_1MHZ = 0x10fe
+                0x00000000000010ff                __CALBC1_1MHZ = 0x10ff
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.text
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+
+.rela.text
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+
+.rel.rodata
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+
+.rela.rodata
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+
+.rel.data
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+
+.rela.data
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+
+.rel.bss
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+
+.rela.bss
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x000000000000c000      0xbe2
+                0x000000000000c000                . = ALIGN (0x2)
+ *(.init .init.*)
+ *(.init0)
+ .init0         0x000000000000c000        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o)
+                0x000000000000c000                _reset_vector__
+ *(.init1)
+ .init1         0x000000000000c000        0xc /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__watchdog_support.o)
+                0x000000000000c000                __watchdog_support
+ *(.init2)
+ .init2         0x000000000000c00c        0x4 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__init_stack.o)
+                0x000000000000c00c                __init_stack
+ *(.init3)
+ .init3         0x000000000000c010        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__low_level_init.o)
+                0x000000000000c010                __low_level_init
+ *(.init4)
+ .init4         0x000000000000c010       0x18 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_copy_data.o)
+                0x000000000000c010                __do_copy_data
+ .init4         0x000000000000c028       0x16 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_clear_bss.o)
+                0x000000000000c028                __do_clear_bss
+ *(.init5)
+ *(.init6)
+ *(.init7)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000000000c03e      0x2f0 main.o
+                0x000000000000c03e                main
+ *(.fini9)
+ .fini9         0x000000000000c32e        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__stop_progExec__.o)
+                0x000000000000c32e                __stop_progExec__
+ *(.fini8)
+ *(.fini7)
+ *(.fini6)
+ *(.fini5)
+ *(.fini4)
+ *(.fini3)
+ *(.fini2)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000000000000c32e        0x6 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_endless_loop__.o)
+                0x000000000000c32e                _endless_loop__
+ *(.fini .fini.*)
+                0x000000000000c334                . = ALIGN (0x2)
+                0x000000000000c334                __ctors_start = .
+ *(.ctors)
+                0x000000000000c334                __ctors_end = .
+                0x000000000000c334                __dtors_start = .
+ *(.dtors)
+                0x000000000000c334                __dtors_end = .
+                0x000000000000c334                . = ALIGN (0x2)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x000000000000c334        0x4 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/crt0ivtbl16.o
+                0x000000000000c334                __isr_1
+                0x000000000000c334                __isr_4
+                0x000000000000c334                __isr_11
+                0x000000000000c334                __isr_0
+                0x000000000000c334                __isr_8
+                0x000000000000c334                __isr_12
+                0x000000000000c334                __isr_13
+                0x000000000000c334                __isr_14
+ .text.crt0     0x000000000000c338        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/crt0ivtbl16.o
+ .text          0x000000000000c338        0x0 main.o
+ .text          0x000000000000c338       0xa0 RealTimeClock.o
+                0x000000000000c338                RTCConfigure
+                0x000000000000c364                Timer_A0_ISR
+                0x000000000000c364                __isr_9
+ .text          0x000000000000c3d8       0xec UART.o
+                0x000000000000c3d8                UARTConfigure
+                0x000000000000c404                UARTSendChar
+                0x000000000000c412                UARTSendArray
+                0x000000000000c42a                UARTSendString
+                0x000000000000c442                UARTPrintln
+                0x000000000000c476                USCI0RX_ISR
+                0x000000000000c476                __isr_7
+ .text          0x000000000000c4c4       0x72 ADC.o
+                0x000000000000c4c4                ADCConfigure
+                0x000000000000c4dc                ADCAcquireTemp
+                0x000000000000c4f4                ADCAcquireA1
+                0x000000000000c506                ADCAcquireA2
+                0x000000000000c51a                ADC10_ISR
+                0x000000000000c51a                __isr_5
+ .text          0x000000000000c536      0x244 print.o
+                0x000000000000c536                putcharacter
+                0x000000000000c554                putstring
+                0x000000000000c5ea                printformat
+ .text          0x000000000000c77a      0x336 LCDDisplay.o
+                0x000000000000c77a                LCDConfigure
+                0x000000000000c81a                LCDWriteChar
+                0x000000000000c832                LCDWriteString
+                0x000000000000c848                LCDHome
+                0x000000000000c858                LCDClear
+                0x000000000000c868                LCDBlinkOn
+                0x000000000000c87c                LCDBlinkOff
+                0x000000000000c892                LCDCursorOn
+                0x000000000000c8a6                LCDCursorOff
+                0x000000000000c8bc                LCDForward
+                0x000000000000c8fc                LCDBack
+                0x000000000000c93c                LCDUp
+                0x000000000000c966                LCDDown
+                0x000000000000c992                LCDSetLocation
+                0x000000000000c9c2                LCDBackLight
+                0x000000000000c9c8                PORT1_ISR
+                0x000000000000c9c8                __isr_2
+                0x000000000000ca2a                __isr_3
+                0x000000000000ca2a                PORT2_ISR
+                0x000000000000ca8e                WDT_ISR
+                0x000000000000ca8e                __isr_10
+ .text          0x000000000000cab0      0x118 i2c.o
+                0x000000000000cab0                i2cConfigure
+                0x000000000000cae6                i2cTx
+                0x000000000000cb04                i2cRx
+                0x000000000000cb22                __isr_6
+                0x000000000000cb22                USCIAB0TX_ISR
+ .text          0x000000000000cbc8        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a(_mulhi3.o)
+ .text.libgcc   0x000000000000cbc8       0x18 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a(_mulhi3.o)
+                0x000000000000cbc8                __mulhi3
+ .text          0x000000000000cbe0        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o)
+ .text          0x000000000000cbe0        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__watchdog_support.o)
+ .text          0x000000000000cbe0        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__init_stack.o)
+ .text          0x000000000000cbe0        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__low_level_init.o)
+ .text          0x000000000000cbe0        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_copy_data.o)
+ .text          0x000000000000cbe0        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_clear_bss.o)
+ .text          0x000000000000cbe0        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__stop_progExec__.o)
+ .text          0x000000000000cbe0        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_endless_loop__.o)
+ .text          0x000000000000cbe0        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_unexpected_.o)
+ .text.crt0     0x000000000000cbe0        0x2 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_unexpected_.o)
+                0x000000000000cbe0                _unexpected_
+                0x000000000000cbe2                . = ALIGN (0x2)
+
+.rodata         0x000000000000cbe2       0xe4
+                0x000000000000cbe2                . = ALIGN (0x2)
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x000000000000cbe2       0x98 main.o
+ .rodata        0x000000000000cc7a       0x4c print.o
+                0x000000000000ccc6                . = ALIGN (0x2)
+                0x000000000000ccc6                _etext = .
+
+.data           0x0000000000000200       0x28 load address 0x000000000000ccc6
+                0x0000000000000200                . = ALIGN (0x2)
+                0x0000000000000200                PROVIDE (__data_start, .)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000000000200        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/crt0ivtbl16.o
+ .data          0x0000000000000200       0x14 main.o
+ .data          0x0000000000000214        0x0 RealTimeClock.o
+ .data          0x0000000000000214        0x0 UART.o
+ .data          0x0000000000000214        0x0 ADC.o
+ .data          0x0000000000000214        0x0 print.o
+ .data          0x0000000000000214       0x14 LCDDisplay.o
+                0x0000000000000214                writeChar
+                0x0000000000000216                col
+                0x0000000000000218                display
+                0x000000000000021a                clear
+                0x000000000000021c                home
+                0x000000000000021e                TxData
+ .data          0x0000000000000228        0x0 i2c.o
+ .data          0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a(_mulhi3.o)
+ .data          0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o)
+ .data          0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__watchdog_support.o)
+ .data          0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__init_stack.o)
+ .data          0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__low_level_init.o)
+ .data          0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_copy_data.o)
+ .data          0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_clear_bss.o)
+ .data          0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__stop_progExec__.o)
+ .data          0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_endless_loop__.o)
+ .data          0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_unexpected_.o)
+                0x0000000000000228                . = ALIGN (0x2)
+                0x0000000000000228                _edata = .
+                0x000000000000ccc6                PROVIDE (__data_load_start, LOADADDR (.data))
+                0x0000000000000028                PROVIDE (__data_size, SIZEOF (.data))
+
+.bss            0x0000000000000228       0x46 load address 0x000000000000ccee
+                0x0000000000000228                PROVIDE (__bss_start, .)
+ *(.bss .bss.*)
+ .bss           0x0000000000000228        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/crt0ivtbl16.o
+ .bss           0x0000000000000228        0x2 main.o
+                0x0000000000000228                cursorState
+ .bss           0x000000000000022a        0x0 RealTimeClock.o
+ .bss           0x000000000000022a        0x2 UART.o
+                0x000000000000022a                i
+ .bss           0x000000000000022c        0x0 ADC.o
+ .bss           0x000000000000022c        0x0 print.o
+ .bss           0x000000000000022c        0x2 LCDDisplay.o
+                0x000000000000022c                column
+ .bss           0x000000000000022e        0x2 i2c.o
+                0x000000000000022e                tx_rx
+ .bss           0x0000000000000230        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a(_mulhi3.o)
+ .bss           0x0000000000000230        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_reset_vector__.o)
+ .bss           0x0000000000000230        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__watchdog_support.o)
+ .bss           0x0000000000000230        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__init_stack.o)
+ .bss           0x0000000000000230        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__low_level_init.o)
+ .bss           0x0000000000000230        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_copy_data.o)
+ .bss           0x0000000000000230        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_clear_bss.o)
+ .bss           0x0000000000000230        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__stop_progExec__.o)
+ .bss           0x0000000000000230        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_endless_loop__.o)
+ .bss           0x0000000000000230        0x0 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_unexpected_.o)
+ *(COMMON)
+ COMMON         0x0000000000000230       0x2a main.o
+                0x0000000000000230                printDestination
+                0x0000000000000232                UARTRxData
+                0x0000000000000246                ms
+                0x0000000000000248                ADCTemp
+                0x000000000000024a                pressRelease2
+                0x000000000000024b                UARTRxFlag
+                0x000000000000024c                pressRelease1
+                0x000000000000024d                ADCflag
+                0x000000000000024e                seconds
+                0x0000000000000250                ADCvalue
+                0x0000000000000252                minutes
+                0x0000000000000254                hours
+                0x0000000000000256                time_ms
+ COMMON         0x000000000000025a        0x2 LCDDisplay.o
+                0x000000000000025a                button2
+                0x000000000000025b                button1
+ COMMON         0x000000000000025c       0x12 i2c.o
+                0x000000000000025c                rx_byte_count
+                0x000000000000025d                tx_byte_count
+                0x000000000000025e                rxdata
+                0x000000000000026a                tx_byte_counter
+                0x000000000000026b                rx_byte_counter
+                0x000000000000026c                tx_dataptr
+                0x000000000000026e                . = ALIGN (0x2)
+                0x000000000000026e                PROVIDE (__bss_end, .)
+                0x0000000000000046                PROVIDE (__bss_size, SIZEOF (.bss))
+
+.noinit         0x000000000000026e        0x2 load address 0x000000000000ccee
+                0x000000000000026e                PROVIDE (__noinit_start, .)
+ *(.noinit .noinit.*)
+ .noinit.crt0   0x000000000000026e        0x2 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__watchdog_support.o)
+                0x000000000000026e                __wdt_clear_value
+                0x0000000000000270                . = ALIGN (0x2)
+                0x0000000000000270                PROVIDE (__noinit_end, .)
+                0x0000000000000270                . = ALIGN (0x2)
+                0x0000000000000270                _end = .
+
+.infomem        0x0000000000001000        0x0
+ *(.infomem)
+                0x0000000000001000                . = ALIGN (0x2)
+ *(.infomem.*)
+
+.infomemnobits  0x0000000000001000        0x0
+ *(.infomemnobits)
+                0x0000000000001000                . = ALIGN (0x2)
+ *(.infomemnobits.*)
+
+.infoa
+ *(.infoa .infoa.*)
+
+.infob
+ *(.infob .infob.*)
+
+.infoc
+ *(.infoc .infoc.*)
+
+.infod
+ *(.infod .infod.*)
+
+.vectors        0x000000000000ffe0       0x20
+                0x000000000000ffe0                PROVIDE (__vectors_start, .)
+ *(.vectors*)
+ .vectors       0x000000000000ffe0       0x20 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/crt0ivtbl16.o
+                0x000000000000ffe0                __ivtbl_16
+                0x0000000000010000                _vectors_end = .
+
+.fartext        0x0000000000000000        0x0
+                0x0000000000000000                . = ALIGN (0x2)
+ *(.fartext)
+                0x0000000000000000                . = ALIGN (0x2)
+ *(.fartext.*)
+                0x0000000000000000                _efartext = .
+
+.profiler
+ *(.profiler)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x118
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x14 main.o
+ .debug_aranges
+                0x0000000000000014       0x14 RealTimeClock.o
+ .debug_aranges
+                0x0000000000000028       0x14 UART.o
+ .debug_aranges
+                0x000000000000003c       0x14 ADC.o
+ .debug_aranges
+                0x0000000000000050       0x14 print.o
+ .debug_aranges
+                0x0000000000000064       0x14 LCDDisplay.o
+ .debug_aranges
+                0x0000000000000078       0x14 i2c.o
+ .debug_aranges
+                0x000000000000008c       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a(_mulhi3.o)
+ .debug_aranges
+                0x00000000000000a0       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__watchdog_support.o)
+ .debug_aranges
+                0x00000000000000b4       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__init_stack.o)
+ .debug_aranges
+                0x00000000000000c8       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_copy_data.o)
+ .debug_aranges
+                0x00000000000000dc       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_clear_bss.o)
+ .debug_aranges
+                0x00000000000000f0       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_endless_loop__.o)
+ .debug_aranges
+                0x0000000000000104       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_unexpected_.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0x12d7
+ *(.debug_info)
+ .debug_info    0x0000000000000000      0x234 main.o
+ .debug_info    0x0000000000000234       0xe0 RealTimeClock.o
+ .debug_info    0x0000000000000314      0x203 UART.o
+ .debug_info    0x0000000000000517      0x107 ADC.o
+ .debug_info    0x000000000000061e      0x32c print.o
+ .debug_info    0x000000000000094a      0x441 LCDDisplay.o
+ .debug_info    0x0000000000000d8b      0x22a i2c.o
+ .debug_info    0x0000000000000fb5       0x88 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a(_mulhi3.o)
+ .debug_info    0x000000000000103d       0x6f /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__watchdog_support.o)
+ .debug_info    0x00000000000010ac       0x6f /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__init_stack.o)
+ .debug_info    0x000000000000111b       0x6f /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_copy_data.o)
+ .debug_info    0x000000000000118a       0x6f /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_clear_bss.o)
+ .debug_info    0x00000000000011f9       0x6f /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_endless_loop__.o)
+ .debug_info    0x0000000000001268       0x6f /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_unexpected_.o)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x0000000000000000      0x74d
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000       0xa8 main.o
+ .debug_abbrev  0x00000000000000a8       0x86 RealTimeClock.o
+ .debug_abbrev  0x000000000000012e      0x105 UART.o
+ .debug_abbrev  0x0000000000000233       0x80 ADC.o
+ .debug_abbrev  0x00000000000002b3      0x1e3 print.o
+ .debug_abbrev  0x0000000000000496      0x135 LCDDisplay.o
+ .debug_abbrev  0x00000000000005cb       0xf6 i2c.o
+ .debug_abbrev  0x00000000000006c1       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a(_mulhi3.o)
+ .debug_abbrev  0x00000000000006d5       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__watchdog_support.o)
+ .debug_abbrev  0x00000000000006e9       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__init_stack.o)
+ .debug_abbrev  0x00000000000006fd       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_copy_data.o)
+ .debug_abbrev  0x0000000000000711       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_clear_bss.o)
+ .debug_abbrev  0x0000000000000725       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_endless_loop__.o)
+ .debug_abbrev  0x0000000000000739       0x14 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_unexpected_.o)
+
+.debug_line     0x0000000000000000      0xb28
+ *(.debug_line)
+ .debug_line    0x0000000000000000      0x168 main.o
+ .debug_line    0x0000000000000168       0xf6 RealTimeClock.o
+ .debug_line    0x000000000000025e      0x11c UART.o
+ .debug_line    0x000000000000037a       0xe5 ADC.o
+ .debug_line    0x000000000000045f      0x1ca print.o
+ .debug_line    0x0000000000000629      0x18f LCDDisplay.o
+ .debug_line    0x00000000000007b8       0xfb i2c.o
+ .debug_line    0x00000000000008b3       0x6e /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libgcc.a(_mulhi3.o)
+ .debug_line    0x0000000000000921       0x56 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__watchdog_support.o)
+ .debug_line    0x0000000000000977       0x54 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(__init_stack.o)
+ .debug_line    0x00000000000009cb       0x5a /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_copy_data.o)
+ .debug_line    0x0000000000000a25       0x5a /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_clear_bss.o)
+ .debug_line    0x0000000000000a7f       0x55 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_endless_loop__.o)
+ .debug_line    0x0000000000000ad4       0x54 /Applications/Energia.app/Contents/Resources/Java/hardware/tools/msp430/bin/../lib/gcc/msp430/4.6.3/libcrt0.a(_unexpected_.o)
+
+.debug_frame    0x0000000000000000      0x352
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x6a main.o
+ .debug_frame   0x000000000000006a       0x34 RealTimeClock.o
+ .debug_frame   0x000000000000009e       0x64 UART.o
+ .debug_frame   0x0000000000000102       0x54 ADC.o
+ .debug_frame   0x0000000000000156       0x9c print.o
+ .debug_frame   0x00000000000001f2      0x10a LCDDisplay.o
+ .debug_frame   0x00000000000002fc       0x56 i2c.o
+
+.debug_str      0x0000000000000000      0x641
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x19a main.o
+                                        0x1e6 (size before relaxing)
+ .debug_str     0x000000000000019a       0x48 RealTimeClock.o
+                                        0x11a (size before relaxing)
+ .debug_str     0x00000000000001e2       0xcb UART.o
+                                        0x1d0 (size before relaxing)
+ .debug_str     0x00000000000002ad       0x74 ADC.o
+                                        0x148 (size before relaxing)
+ .debug_str     0x0000000000000321       0x85 print.o
+                                        0x180 (size before relaxing)
+ .debug_str     0x00000000000003a6      0x1aa LCDDisplay.o
+                                        0x337 (size before relaxing)
+ .debug_str     0x0000000000000550       0xf1 i2c.o
+                                        0x1fe (size before relaxing)
+
+.debug_loc      0x0000000000000000      0x541
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000       0x94 main.o
+ .debug_loc     0x0000000000000094       0x1c RealTimeClock.o
+ .debug_loc     0x00000000000000b0       0x4d UART.o
+ .debug_loc     0x00000000000000fd       0x14 ADC.o
+ .debug_loc     0x0000000000000111      0x368 print.o
+ .debug_loc     0x0000000000000479       0x9c LCDDisplay.o
+ .debug_loc     0x0000000000000515       0x2c i2c.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000        0x8
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000        0x8 main.o
+                0x0000000000000400                PROVIDE (__stack, (ORIGIN (ram) + 0x200))
+                0x000000000000ccc6                PROVIDE (__data_start_rom, _etext)
+                0x000000000000ccee                PROVIDE (__data_end_rom, (_etext + SIZEOF (.data)))
+OUTPUT(main.elf elf32-msp430)

@@ -17,12 +17,17 @@
 #define EVENTSTART2 5000UL
 #define EVENTDELAY2 2000UL
 
+#define EVENTSTART4 4800UL
+#define EVENTDELAY4 500UL
+
 static unsigned long event0 = EVENTSTART0;
 static unsigned long event1 = EVENTSTART1;
 static unsigned long event2 = EVENTSTART2;
 static unsigned long event3 = 4500;
+static unsigned long event4 = EVENTSTART4;
 
 char cursorState = 0;
+int ADCTemp;
 
 int main(void)
 {
@@ -36,7 +41,7 @@ int main(void)
     UARTConfigure();
     ADCConfigure();
     LCDConfigure();
-    LCDBackLight(50);
+    LCDBackLight(500);
     LCDBlinkOff();
     LCDCursorOff();
     RTCConfigure();
@@ -47,9 +52,6 @@ int main(void)
         if (pressRelease1)
         {
             switch (pressRelease1) {
-                case S1:
-                    LCDBack();
-                    break;
                 case SW2:
                     LCDHome();
                     LCDWriteString("S0");
@@ -60,17 +62,20 @@ int main(void)
         
         if (pressRelease2) {
             switch (pressRelease2) {
-                case S2:
+                case LEFT:
+                    LCDBack();
+                    break;
+                case DOWN:
                     LCDDown();
                     break;
-                case S3:
+                case RIGHT:
                     LCDForward();
                     break;
-                case S4:
+                case UP:
                     LCDUp();
                     break;
-                case S5:
-                    if (++cursorState == 4) cursorState = 0;   // Increment state and wrap if exceeds laat state
+                case SELECT:
+                    cursorState = (cursorState+1) % 4;   // Increment state and wrap if exceeds total number of states
                     switch (cursorState) {
                         case 0:
                             LCDBlinkOff();
@@ -90,8 +95,8 @@ int main(void)
             pressRelease2 = 0;
         }
         
-        //Service timed events
-        if (time_ms >= event0)
+        /* Service timed events */
+        if (time_ms >= event0)               // Start up splash screen
         {
             event0 = MAXTIME_MS;             // Do not repeat event
             LCDHome();
@@ -101,13 +106,13 @@ int main(void)
             LCDWriteString("Time & ADC Demo");
         }
         
-        if (time_ms >= event3)
+        if (time_ms >= event3)               // Clear LCD display after start up splash screen
         {
             event3=MAXTIME_MS;               // Do not repeat event
             LCDClear();
         }
         
-        if (time_ms >= event1)
+        if (time_ms >= event1)               // Update clock display
         {
             event1=time_ms+EVENTDELAY1;      // Schedule repeat event
             printDestination = LCD;
@@ -118,19 +123,54 @@ int main(void)
         if (time_ms >= event2)
         {
             event2=time_ms+EVENTDELAY2;      // Schedule repeat event
-            UARTPrintln("Reading ADC");      // Send string to UART
+            UARTPrintln("Reading ADC Temperature");      // Send string to UART
             ADCAcquireTemp();
         }
         
-        // Service ADC flag
-        if (ADCflag == 1)
+        if (time_ms >= event4)
         {
-            ADCflag = 0;                     // Reset ADC flag to indicate that the event has been serviced
-            printDestination = UART;
-            printformat("Temp: %i C\r\n",((ADCvalue * 27069L - 18169625L) >> 16));  // Send formatted ADC reading to UART
-            printDestination = LCD;
-            LCDSetLocation(1,0);
-            printformat("Temp: %i C",((ADCvalue * 27069L - 18169625L) >> 16)); // Send formatted ADC reading to LCD Display
+            event4=time_ms+EVENTDELAY4;      // Schedule repeat event
+            UARTPrintln("Reading ADC A1");      // Send string to UART
+            ADCAcquireA1();
+        }
+        
+        // Service UART Receive Flag
+        if (UARTRxFlag)
+        {
+            // Echo received characters (comment these lines if Echo is not required.
+            UARTSendString("Received command: ");
+            UARTSendArray(UARTRxData, UARTRxFlag);             // Send received characters back to sender
+            UARTSendChar('\r');                         // Send carriage return character
+            UARTSendChar('\n');                         // Send carriage linefeed character
+            // End Echo
+            UARTRxFlag = 0;
+        }
+        
+        // Service ADC flag
+        if (ADCflag & DONE)
+        {
+            switch (ADCflag & (~DONE)) {
+                case TEMPERATURE :
+                    //ADCTemp = (ADCvalue * 27069L - 18169625L) >> 16;
+                    ADCTemp = ((ADCvalue - 673) * 423) / 1024;
+                    ADCflag = 0;                     // Reset ADC flag to indicate that the event has been serviced
+                    printDestination = UART;
+                    printformat("Temp: %i C\r\n",ADCTemp);  // Send formatted ADC reading to UART
+                    printDestination = LCD;
+                    LCDSetLocation(1,0);
+                    printformat("Temp:%iC",ADCTemp); // Send formatted ADC reading to LCD Display
+                    break;
+                case A1 :
+                    ADCTemp = ADCvalue;
+                    ADCflag = 0;                     // Reset ADC flag to indicate that the event has been serviced
+                    printDestination = UART;
+                    printformat("ADC A1: %2i\r\n",ADCTemp);  // Send formatted ADC reading to UART
+                    printDestination = LCD;
+                    LCDSetLocation(1,9);
+                    printformat("A1:%4i",ADCTemp); // Send formatted ADC reading to LCD Display
+                    break;
+            }
+            
             
         }
         
